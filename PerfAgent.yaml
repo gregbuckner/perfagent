@@ -1,0 +1,10 @@
+Configs:
+    influxdb_database : jmeter
+    influxdb_login : admin
+    influxdb_password : admin
+    influxdb_host : 10.90.7.227
+    influxdb_port : 8086
+    environment : ppe
+    agent_ips : [10.90.7.170, 10.90.7.204, 10.90.7.65,10.90.7.255]
+    agent_port : 4444
+    telnet_timeout : 10

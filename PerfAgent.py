@@ -33,7 +33,6 @@ tn_cpu_session.write('interval:args.interval'+'\n')
 tn_mem_session.write('interval:args.interval'+'\n')
 tn_tcp_session.write('interval:args.interval'+'\n')
 
-
 def write_to_influxdb():
 
     if time.time() >= endTime:
@@ -96,19 +95,16 @@ def write_to_influxdb():
         }
     ]
 
-    print 'cpu %d' % tn_cpu_resp 
-    print 'mem %d' % tn_mem_resp
-    print 'tcp %d' % tn_tcp_resp
-    print '_' * 20
+    # print 'cpu %d' % tn_cpu_resp 
+    # print 'mem %d' % tn_mem_resp
+    # print 'tcp %d' % tn_tcp_resp
+    # print '_' * 20
 
     tTimer = threading.Timer(float(args.interval), write_to_influxdb).start()
-    
 
     influxClient.write_points(cpu_json_body, database = INFLUXDB_DATABASE)
     influxClient.write_points(mem_json_body, database = INFLUXDB_DATABASE)
     influxClient.write_points(tcp_json_body, database = INFLUXDB_DATABASE)
-
-    
 
 write_to_influxdb()
         

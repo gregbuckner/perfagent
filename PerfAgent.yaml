@@ -1,7 +1,7 @@
 Configs:
     influxdb_database : jmeter
-    influxdb_login : admin
-    influxdb_password : admin
+    influxdb_login : mexuser
+    influxdb_password : Password99
     influxdb_host : 10.90.7.227
     influxdb_port : 8086
     environment : ppe

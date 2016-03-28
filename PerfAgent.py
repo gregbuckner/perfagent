@@ -29,9 +29,9 @@ tn_mem_session = telnetlib.Telnet(args.agent_ip, args.agent_port, TELNET_TIMEOUT
 tn_tcp_session = telnetlib.Telnet(args.agent_ip, args.agent_port, TELNET_TIMEOUT)
 
 #tn_cpu_session.write('test'+'\n')
-tn_cpu_session.write('interval:args.interval'+'\n')
-tn_mem_session.write('interval:args.interval'+'\n')
-tn_tcp_session.write('interval:args.interval'+'\n')
+tn_cpu_session.write('interval:' + args.interval + '\n')
+tn_mem_session.write('interval:' + args.interval + '\n')
+tn_tcp_session.write('interval:' + args.interval + '\n')
 
 def write_to_influxdb():
 
@@ -95,10 +95,10 @@ def write_to_influxdb():
         }
     ]
 
-    # print 'cpu %d' % tn_cpu_resp 
-    # print 'mem %d' % tn_mem_resp
-    # print 'tcp %d' % tn_tcp_resp
-    # print '_' * 20
+    print 'cpu %d' % tn_cpu_resp 
+    print 'mem %d' % tn_mem_resp
+    print 'tcp %d' % tn_tcp_resp
+    print '_' * 20
 
     tTimer = threading.Timer(float(args.interval), write_to_influxdb).start()
 
